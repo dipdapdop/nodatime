@@ -795,6 +795,14 @@ namespace NodaTime.Test
         }
 
         [Test]
+        public void NormalizingEqualityComparer_OneWeek_ToSevenDays_EqualAfterNormalization()
+        {
+            Period period1 = Period.FromWeeks(1);
+            Period period2 = Period.FromDays(7);
+            Assert.IsTrue(Period.NormalizingEqualityComparer.Equals(period1, period2));
+        }
+
+        [Test]
         public void NormalizingEqualityComparer_GetHashCodeAfterNormalization()
         {
             Period period1 = Period.FromHours(2);
